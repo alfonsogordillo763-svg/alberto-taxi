@@ -137,7 +137,7 @@
           name: name,
           rating: selectedStars,
           comment: comment,
-          approved: false
+          approved: true
         });
 
       if(result.error){
