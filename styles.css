@@ -1,0 +1,255 @@
+:root{
+  --black: #17181A;
+  --panel: #202226;
+  --yellow: #F4B400;
+  --yellow-dim: #C98F1F;
+  --cream: #F3EEE4;
+  --cream-dim: #A9A79E;
+  --line: #34363B;
+  --star-off: #4A4C51;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--black);
+  color:var(--cream);
+  font-family:'Work Sans', sans-serif;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:32px 16px 64px;
+}
+.page{
+  width:100%;
+  max-width:520px;
+}
+
+/* --- Header / roof light --- */
+header{
+  text-align:center;
+  padding:8px 0 28px;
+}
+.roof-light{
+  display:inline-block;
+  position:relative;
+  background:var(--yellow);
+  color:var(--black);
+  font-family:'Oswald', sans-serif;
+  font-weight:700;
+  letter-spacing:0.06em;
+  padding:10px 26px;
+  border-radius:10px;
+  font-size:1.6rem;
+  box-shadow:0 0 0 3px var(--black), 0 0 22px rgba(244,180,0,0.35);
+}
+.roof-light::before, .roof-light::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:8px;
+  height:8px;
+  background:var(--yellow);
+  border-radius:50%;
+  transform:translateY(-50%);
+  box-shadow:0 0 8px rgba(244,180,0,0.7);
+}
+.roof-light::before{ left:-18px; }
+.roof-light::after{ right:-18px; }
+.tagline{
+  margin-top:14px;
+  color:var(--cream-dim);
+  font-size:0.95rem;
+  letter-spacing:0.02em;
+}
+
+/* --- Call plate --- */
+.call-plate{
+  display:block;
+  text-decoration:none;
+  background:var(--cream);
+  color:var(--black);
+  border-radius:8px;
+  padding:20px 18px;
+  text-align:center;
+  margin:0 0 28px;
+  border:2px solid var(--black);
+  box-shadow: 4px 4px 0 var(--yellow);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.call-plate:active{
+  transform:translate(2px,2px);
+  box-shadow: 2px 2px 0 var(--yellow);
+}
+.call-plate .label{
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#5c5a52;
+  font-weight:600;
+}
+.call-plate .number{
+  font-family:'Oswald', sans-serif;
+  font-size:2.3rem;
+  font-weight:700;
+  letter-spacing:0.05em;
+  margin-top:2px;
+}
+.call-plate .hint{
+  margin-top:6px;
+  font-size:0.8rem;
+  color:#6b6a62;
+}
+
+/* --- Sections --- */
+section{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:22px;
+  margin-bottom:20px;
+}
+h2{
+  font-family:'Oswald', sans-serif;
+  font-weight:600;
+  font-size:1.05rem;
+  letter-spacing:0.03em;
+  margin:0 0 16px;
+  text-transform:uppercase;
+  color:var(--yellow);
+}
+
+/* --- Average rating --- */
+.avg-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:6px;
+}
+.avg-number{
+  font-family:'Oswald', sans-serif;
+  font-size:2.4rem;
+  font-weight:700;
+  line-height:1;
+}
+.avg-meta{ display:flex; flex-direction:column; gap:4px; }
+.avg-stars{ font-size:1.1rem; letter-spacing:2px; color:var(--yellow); }
+.avg-count{ font-size:0.8rem; color:var(--cream-dim); }
+
+/* --- Star picker --- */
+.star-picker{
+  display:flex;
+  gap:6px;
+  font-size:2rem;
+  line-height:1;
+  margin:4px 0 16px;
+  user-select:none;
+}
+.star-picker span{
+  cursor:pointer;
+  color:var(--star-off);
+  transition:color .1s ease, transform .1s ease;
+}
+.star-picker span:hover{ transform:scale(1.08); }
+.star-picker span.filled{ color:var(--yellow); }
+
+form input[type="text"], form textarea{
+  width:100%;
+  background:var(--black);
+  border:1px solid var(--line);
+  color:var(--cream);
+  border-radius:6px;
+  padding:11px 12px;
+  font-family:inherit;
+  font-size:0.92rem;
+  margin-bottom:12px;
+  resize:vertical;
+}
+form input[type="text"]:focus, form textarea:focus{
+  outline:2px solid var(--yellow);
+  outline-offset:1px;
+}
+form textarea{ min-height:70px; }
+label.field-label{
+  display:block;
+  font-size:0.75rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--cream-dim);
+  margin-bottom:6px;
+}
+.submit-btn{
+  width:100%;
+  background:var(--yellow);
+  color:var(--black);
+  border:none;
+  border-radius:6px;
+  padding:12px;
+  font-family:'Oswald', sans-serif;
+  font-weight:600;
+  font-size:0.95rem;
+  letter-spacing:0.03em;
+  cursor:pointer;
+  transition:background .12s ease;
+}
+.submit-btn:hover{ background:#ffc42e; }
+.submit-btn:disabled{ opacity:0.5; cursor:not-allowed; }
+.form-msg{
+  margin-top:10px;
+  font-size:0.85rem;
+  color:var(--yellow);
+  min-height:1em;
+}
+
+/* --- Reviews list --- */
+.review{
+  border-top:1px solid var(--line);
+  padding:14px 0;
+}
+.review:first-child{ border-top:none; padding-top:0; }
+.review-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+}
+.review-name{ font-weight:600; font-size:0.92rem; }
+.review-stars{ color:var(--yellow); letter-spacing:1px; font-size:0.9rem; white-space:nowrap; }
+.review-text{
+  margin-top:5px;
+  font-size:0.88rem;
+  color:var(--cream-dim);
+  line-height:1.45;
+}
+.empty-state{
+  color:var(--cream-dim);
+  font-size:0.88rem;
+  text-align:center;
+  padding:12px 0;
+}
+
+footer{
+  text-align:center;
+  color:var(--cream-dim);
+  font-size:0.75rem;
+  margin-top:8px;
+  letter-spacing:0.03em;
+}
+
+/* --- WhatsApp floating button --- */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:56px;
+  height:56px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.4);
+  z-index:999;
+  transition:transform .12s ease;
+}
+.whatsapp-float:hover{ transform:scale(1.06); }
+.whatsapp-float svg{ width:30px; height:30px; }
